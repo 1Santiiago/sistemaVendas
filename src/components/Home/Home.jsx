@@ -4,11 +4,9 @@ import Footer from "../Footer/Footer";
 import Card from "../CardGeral/CardGeral";
 import { useQuery } from "react-query";
 
-
-
-
+const query = 'ipad'
 const limit = 8
-const url = `https://api.mercadolibre.com/sites/MLB/search?q=iphone&limit=${limit}`;
+const url = `https://api.mercadolibre.com/sites/MLB/search?q=${query}&limit=${limit}`;
 
 function Home() {
 
@@ -40,7 +38,7 @@ function Home() {
       <c.allContainers>
        {
         data.map((item, index)=>(
-          <Card key={index} photo={item.thumbnail} title={item.title} price={item.price}/>
+          <Card key={index} photo={item.thumbnail} title={item.title.substring(0, 79)} price={item.price}/>
         ))
        }
       </c.allContainers>
