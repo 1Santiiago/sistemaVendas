@@ -1,9 +1,14 @@
 
-
+import { GlobalStyle } from './Global';
+import Footer from './components/Footer/Footer';
+import Header from './components/Header/Header'
+import Home from './components/Home/Home';
 function App() {
   return (
     <>
-     <h1>Virtual store</h1>
+   
+    <Home />
+     <GlobalStyle />
     </>
   );
 }
