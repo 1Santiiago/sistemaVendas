@@ -1,9 +1,11 @@
 
-
+import { GlobalStyle } from './Global';
+import Header from './components/Header/Header'
 function App() {
   return (
     <>
-     <h1>Virtual store</h1>
+     <Header/>
+     <GlobalStyle />
     </>
   );
 }
