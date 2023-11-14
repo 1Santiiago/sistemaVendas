@@ -11,7 +11,7 @@ function Header() {
       </div>
       <c.divCart>
         <button >
-          <img src={Vector} alt="" />
+          <img src={Vector} alt=""/>
         </button>
         <span>0</span>
       </c.divCart>
