@@ -6,16 +6,16 @@ import { useQuery } from "react-query";
 import { useState } from "react";
 import SideBar from "../SideBar/Sidebar";
 
-const query = 'items';
+const query = "z flip";
 const limit = 8;
 const url = `https://api.mercadolibre.com/sites/MLB/search?q=${query}&limit=${limit}`;
 
 function Home() {
-  const { data, isLoading, error } = useQuery('items', async () => {
+  const { data, isLoading, error } = useQuery("items", async () => {
     const response = await fetch(url);
 
     if (!response.ok) {
-      throw new Error('Erro na requisição');
+      throw new Error("Erro na requisição");
     }
 
     const data = await response.json();
@@ -24,9 +24,14 @@ function Home() {
   });
 
   const [isSidebarOpen, setSideBarOpen] = useState(false);
+  const [cart, setCart] = useState([]);
 
   const handleSidebar = () => {
     setSideBarOpen(!isSidebarOpen);
+  };
+
+  const handleBuyClick = (itemData) => {
+    setCart((prevCart) => [...prevCart, itemData]);
   };
 
   if (isLoading) {
@@ -41,11 +46,18 @@ function Home() {
     <>
       <Header handleSideBar={handleSidebar} />
       <c.allContainers>
-        {data && data.map((item, index) => (
-          <Card key={index} photo={item.thumbnail} title={item.title.substring(0, 79)} price={item.price} />
-        ))}
+        {data &&
+          data.map((item, index) => (
+            <Card
+              key={index}
+              photo={item.thumbnail}
+              title={item.title.substring(0, 79)}
+              price={item.price}
+              onBuyClick={handleBuyClick}
+            />
+          ))}
       </c.allContainers>
-      {isSidebarOpen && <SideBar handleSidebar={handleSidebar} />}
+      {isSidebarOpen && <SideBar handleSidebar={handleSidebar} data={cart} />}
       <Footer />
     </>
   );
