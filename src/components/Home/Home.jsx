@@ -3,9 +3,10 @@ import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import Card from "../CardGeral/CardGeral";
 import { useQuery } from "react-query";
-import { useEffect} from "react"
+import { useEffect, useState} from "react"
+import SideBar from "../SideBar/Sidebar";
 
-const query = 'Z fold'
+const query = 'z flip'
 const limit = 8
 const url = `https://api.mercadolibre.com/sites/MLB/search?q=${query}&limit=${limit}`;
 
@@ -26,7 +27,7 @@ function Home() {
   })
   useEffect(()=>{
       if(data){console.log('mudando...')}
-    }, [query, data])
+    }, [query])
     
 
   if(isLoading){
@@ -37,9 +38,20 @@ function Home() {
     return <p>Erro ao buscar produtos: {error.message}</p>;
   }
   
+
+
+
+  //sidebar
+
+  const [isSidebarOpen, setSideBarOpen] = useState(false);
+  const handleSidebar = () =>{
+    setSideBarOpen(!isSidebarOpen)
+  }
+
+
   return (
     <>
-      <Header />
+      <Header handleSidebar={handleSidebar} />
       <c.allContainers>
        {
         data.map((item, index)=>(
@@ -47,6 +59,7 @@ function Home() {
         ))
        }
       </c.allContainers>
+      {isSidebarOpen && <SideBar handleSidebar={handleSidebar} />}
       <Footer />
     </>
   );

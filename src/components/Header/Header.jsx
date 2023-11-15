@@ -1,7 +1,7 @@
 // Header.jsx
 import * as c from "./style";
 import Vector from '../img/vector.svg'
-function Header() {
+function Header({handleSidebar}) {
   return (
     <c.Header>
       <div>
@@ -10,7 +10,7 @@ function Header() {
         </c.H1>
       </div>
       <c.divCart>
-        <button >
+        <button onClick={handleSidebar} >
           <img src={Vector} alt=""/>
         </button>
         <span>0</span>
