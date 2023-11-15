@@ -3,8 +3,9 @@ import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import Card from "../CardGeral/CardGeral";
 import { useQuery } from "react-query";
+import { useEffect} from "react"
 
-const query = 'ipad'
+const query = 'Z fold'
 const limit = 8
 const url = `https://api.mercadolibre.com/sites/MLB/search?q=${query}&limit=${limit}`;
 
@@ -21,7 +22,12 @@ function Home() {
    
     return data.results
 
+    
   })
+  useEffect(()=>{
+      if(data){console.log('mudando...')}
+    }, [query, data])
+    
 
   if(isLoading){
     return console.log('carregando')
@@ -30,7 +36,6 @@ function Home() {
   if (error) {
     return <p>Erro ao buscar produtos: {error.message}</p>;
   }
-  
   
   return (
     <>
