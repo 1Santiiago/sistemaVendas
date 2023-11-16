@@ -38,6 +38,14 @@ function Home() {
     setCart([]);
   };
 
+  const HandleDelete = (index) => {
+    setCart((prevCart) => {
+      const newCart = [...prevCart];
+      newCart.splice(index, 1);
+      return newCart;
+    });
+  };
+
   if (isLoading) {
     return <p>Carregando...</p>;
   }
@@ -63,6 +71,7 @@ function Home() {
       </c.allContainers>
       {isSidebarOpen && (
         <SideBar
+          HandleDelete={HandleDelete}
           handleSidebar={handleSidebar}
           data={cart}
           EmptyCard={EmptyCard}

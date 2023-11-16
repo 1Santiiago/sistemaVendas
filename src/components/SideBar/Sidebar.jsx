@@ -4,7 +4,7 @@ import SideBarFooter from "../SideBarFooter/SideBarFooter";
 import * as c from "./style";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 
-function SideBar({ handleSidebar, data, EmptyCard }) {
+function SideBar({ handleSidebar, data, EmptyCard, HandleDelete }) {
   const [totalValue, setTotalValue] = useState(0);
 
   useEffect(() => {
@@ -15,13 +15,7 @@ function SideBar({ handleSidebar, data, EmptyCard }) {
     calculatedValue();
   }, [data]);
 
-  // const handleDelete = (index) => {
-  //   if (data.length >= 0) {
-  //     const newData = [...data];
-  //     newData.splice(index, 1);
-  //     setTotalValue(newData.reduce((acc, item) => acc + item.price, 0));
-  //   }
-  // };
+ 
   return (
     <c.Aside>
       <c.containerSide>
@@ -36,13 +30,13 @@ function SideBar({ handleSidebar, data, EmptyCard }) {
         data.map((item, i) => (
           <ItemCarrinho
             key={i}
+            HandleDelete={() => HandleDelete(i)}
             title={item.title}
             photo={item.photo}
             price={item.price.toLocaleString("pt-BR", {
               style: "currency",
               currency: "BRL",
             })}
-            // HandleDelete={handleDelete}
           />
         ))}
       <SideBarFooter
