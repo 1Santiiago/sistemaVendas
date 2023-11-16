@@ -6,7 +6,7 @@ function Header({handleSideBar}) {
     <c.Header>
       <div>
         <c.H1>
-          San <sub>Sistemas</sub>
+          Virtual  <sub>Systems</sub>
         </c.H1>
       </div>
       <c.divCart>

@@ -30,6 +30,10 @@ export const containerSide = styled.div`
   > p{
     color: #fff;
     cursor: pointer;
+
+    &:hover{
+      color: var(--color-two);
+    }
   }
 
   >svg{
