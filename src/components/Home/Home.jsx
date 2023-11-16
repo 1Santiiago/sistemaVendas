@@ -6,7 +6,7 @@ import { useQuery } from "react-query";
 import { useState } from "react";
 import SideBar from "../SideBar/Sidebar";
 
-const query = "z flip";
+const query = "iphone";
 const limit = 8;
 const url = `https://api.mercadolibre.com/sites/MLB/search?q=${query}&limit=${limit}`;
 
@@ -34,6 +34,10 @@ function Home() {
     setCart((prevCart) => [...prevCart, itemData]);
   };
 
+  const EmptyCard = () => {
+    setCart([]);
+  };
+
   if (isLoading) {
     return <p>Carregando...</p>;
   }
@@ -57,7 +61,13 @@ function Home() {
             />
           ))}
       </c.allContainers>
-      {isSidebarOpen && <SideBar handleSidebar={handleSidebar} data={cart} />}
+      {isSidebarOpen && (
+        <SideBar
+          handleSidebar={handleSidebar}
+          data={cart}
+          EmptyCard={EmptyCard}
+        />
+      )}
       <Footer />
     </>
   );

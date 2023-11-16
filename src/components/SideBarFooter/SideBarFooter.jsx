@@ -1,13 +1,13 @@
 
 import * as c from './style.js'
 
-function SideBarFooter () {
+function SideBarFooter ({data}) {
   return (
     <>
     <c.Box>
       <c.totalFooter>
         <h2>Total :</h2>
-        <span>0</span>
+        <span>R$ {data}</span>
       </c.totalFooter>
     </c.Box>
     <c.footerSide>
