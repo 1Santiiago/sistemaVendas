@@ -3,7 +3,7 @@ export const Container = styled.div`
   width: 20rem;
   height: 21rem;
   border-radius: 0.5rem;
-  background: #A9A9A9;
+  background: #fff;
   box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.12);
   position: relative;
 `;
