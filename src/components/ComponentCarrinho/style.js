@@ -9,11 +9,17 @@ export const ContainerSide = styled.div`
     align-items: center;
     margin: 2rem auto;
     border-radius: 0.6rem;
+
+    >svg{
+      display: flex;
+      width: 2rem;
+      cursor: pointer;
+    }
 `;
 
 
 export const CaixaItem = styled.div`
-
+display: flex;
 
 `
 export const Title = styled.h2`
@@ -22,6 +28,8 @@ font-size: 0.8125rem;
 font-style: normal;
 font-weight: 400;
 line-height: 1.0625rem; 
+
+
 
 `
 

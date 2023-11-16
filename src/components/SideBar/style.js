@@ -10,6 +10,8 @@ export const Aside = styled.aside`
   top: 0;
   right: 0;
   z-index: 1;
+  
+
  
 
 `
@@ -23,6 +25,11 @@ export const containerSide = styled.div`
   >h2{
     color: var(--color-two);
     font-size: 2.4rem;
+  }
+
+  > p{
+    color: #fff;
+    cursor: pointer;
   }
 
   >svg{
