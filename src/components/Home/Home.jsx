@@ -1,16 +1,18 @@
+// Home.jsx
+import React, { useState } from 'react';
 import * as c from "./style";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import Card from "../CardGeral/CardGeral";
 import { useQuery } from "react-query";
-import { useState } from "react";
 import SideBar from "../SideBar/Sidebar";
-
-const query = "iphone";
-const limit = 8;
-const url = `https://api.mercadolibre.com/sites/MLB/search?q=${query}&limit=${limit}`;
+import InputSearch from "../InputSearch/InputSearch";
 
 function Home() {
+  const [searchQuery, setSearchQuery] = useState('iphone');
+  const limit = 8;
+  const url = `https://api.mercadolibre.com/sites/MLB/search?q=${searchQuery}&limit=${limit}`;
+
   const { data, isLoading, error } = useQuery("items", async () => {
     const response = await fetch(url);
 
@@ -57,6 +59,7 @@ function Home() {
   return (
     <>
       <Header handleSideBar={handleSidebar} cart={cart} />
+      <InputSearch onSearch={setSearchQuery} />
       <c.allContainers>
         {data &&
           data.map((item, index) => (
