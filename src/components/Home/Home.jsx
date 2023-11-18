@@ -1,5 +1,5 @@
 // Home.jsx
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import * as c from "./style";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
@@ -8,10 +8,20 @@ import { useQuery } from "react-query";
 import SideBar from "../SideBar/Sidebar";
 import InputSearch from "../InputSearch/InputSearch";
 
+
 function Home() {
   const [searchQuery, setSearchQuery] = useState('iphone');
   const limit = 8;
-  const url = `https://api.mercadolibre.com/sites/MLB/search?q=${searchQuery}&limit=${limit}`;
+  const [debouncedSearchQuery, setDebouncedSearchQuery] = useState(searchQuery);
+  const url = `https://api.mercadolibre.com/sites/MLB/search?q=${encodeURIComponent(debouncedSearchQuery)}&limit=${limit}`;
+
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      setDebouncedSearchQuery(searchQuery);
+    }, 500); 
+    return () => clearTimeout(timeoutId);
+  }, [searchQuery]);
+
 
   const { data, isLoading, error } = useQuery("items", async () => {
     const response = await fetch(url);

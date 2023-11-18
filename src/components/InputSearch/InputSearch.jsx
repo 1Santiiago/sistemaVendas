@@ -10,7 +10,7 @@ function InputSearch({ onSearch }) {
 
 const handleSearchClick = () => {
     onSearch(searchTerm);
-    setSearchTerm(' ')
+    setSearchTerm('')
   };
 
   return (
