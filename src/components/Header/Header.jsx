@@ -2,7 +2,7 @@
 import * as c from "./style";
 import { FaCartPlus } from "react-icons/fa";
 
-function Header({ handleSideBar }) {
+function Header({ handleSideBar, cart }) {
   return (
     <c.Header>
       <div>
@@ -14,7 +14,7 @@ function Header({ handleSideBar }) {
         <button onClick={handleSideBar}>
           <FaCartPlus />
         </button>
-        <span>0</span>
+        <span>{cart.length}</span>
       </c.divCart>
     </c.Header>
   );

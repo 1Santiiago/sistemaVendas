@@ -56,7 +56,7 @@ function Home() {
 
   return (
     <>
-      <Header handleSideBar={handleSidebar} />
+      <Header handleSideBar={handleSidebar} cart={cart} />
       <c.allContainers>
         {data &&
           data.map((item, index) => (
