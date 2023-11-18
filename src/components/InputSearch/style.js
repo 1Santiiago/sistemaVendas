@@ -7,7 +7,7 @@ export const ContainerSearcher = styled.div`
   margin-top: 2rem;
 
   > input {
-    width: 20%;
+    width: 30%;
     height: 2.1rem;
     outline: 0;
     border-radius: 0.7rem;
