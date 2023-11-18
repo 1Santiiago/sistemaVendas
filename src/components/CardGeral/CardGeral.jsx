@@ -1,5 +1,5 @@
 import * as c from "./style.js";
-import shoppingBag from "../img/shopping-bag.svg";
+import { HiOutlineShoppingBag } from "react-icons/hi2";
 
 function Card({ title, price, photo, onBuyClick }) {
 
@@ -17,7 +17,7 @@ function Card({ title, price, photo, onBuyClick }) {
      <c.P>{price}</c.P>
       </c.containerTitlePrice>
       <c.Button onClick={handleBuyClick}>
-        <img src={shoppingBag} alt="" />
+      <HiOutlineShoppingBag />
         Comprar
       </c.Button>
     </c.Container>

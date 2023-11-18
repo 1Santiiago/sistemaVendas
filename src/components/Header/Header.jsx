@@ -1,17 +1,18 @@
 // Header.jsx
 import * as c from "./style";
-import Vector from '../img/vector.svg'
-function Header({handleSideBar}) {
+import { FaCartPlus } from "react-icons/fa";
+
+function Header({ handleSideBar }) {
   return (
     <c.Header>
       <div>
         <c.H1>
-          Virtual  <sub>Systems</sub>
+          Virtual <sub>Systems</sub>
         </c.H1>
       </div>
       <c.divCart>
-        <button onClick={handleSideBar} >
-          <img src={Vector} alt=""/>
+        <button onClick={handleSideBar}>
+          <FaCartPlus />
         </button>
         <span>0</span>
       </c.divCart>
