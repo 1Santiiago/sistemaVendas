@@ -8,7 +8,7 @@ export const ContainerSearcher = styled.div`
 
   > input {
     width: 20%;
-    height: 2rem;
+    height: 2.1rem;
     outline: 0;
     border-radius: 0.7rem;
     box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.42);
