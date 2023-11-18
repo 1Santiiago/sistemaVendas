@@ -7,7 +7,7 @@ function SideBarFooter ({data}) {
     <c.Box>
       <c.totalFooter>
         <h2>Total :</h2>
-        <span>R$ {data}</span>
+        <span>{data}</span>
       </c.totalFooter>
     </c.Box>
     <c.footerSide>
