@@ -17,7 +17,7 @@ const handleSearchClick = () => {
     <c.ContainerSearcher>
       <input
         type="text"
-        placeholder='Faça sua busca'
+        placeholder='Find...'
         value={searchTerm}
         onChange={handleInputChange}
       />
