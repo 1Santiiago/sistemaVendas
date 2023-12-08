@@ -66,6 +66,9 @@ function Home() {
     return <p>Erro ao buscar produtos: {error.message}</p>;
   }
 
+
+
+  
   return (
     <>
       <Header handleSideBar={handleSidebar} cart={cart} />

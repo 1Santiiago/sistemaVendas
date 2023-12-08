@@ -4,7 +4,7 @@ import SideBarFooter from "../SideBarFooter/SideBarFooter";
 import * as c from "./style";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 
-function SideBar({ handleSidebar, data, EmptyCard, HandleDelete }) {
+function SideBar({ handleSidebar, data, EmptyCard, HandleDelete, }) {
   const [totalValue, setTotalValue] = useState(0);
 
   useEffect(() => {
@@ -43,6 +43,7 @@ function SideBar({ handleSidebar, data, EmptyCard, HandleDelete }) {
           data={totalValue.toLocaleString("pt-BR", {
           style: "currency",
           currency: "BRL",
+         
         })}
       />
     </c.Aside>
