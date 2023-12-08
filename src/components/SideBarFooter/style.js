@@ -7,13 +7,16 @@ export const footerSide = styled.footer`
   position: absolute;
   bottom: 0;
   text-align: center;
-
+  cursor: pointer;
   > h1 {
     color: var(--color-two);
     font-size: 1.75rem;
     font-style: normal;
     font-weight: 700;
     line-height: 9.9375rem; 
+    &:hover{
+      color: white;
+    }
   }
 `;
 
